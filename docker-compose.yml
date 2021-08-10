@@ -3,4 +3,5 @@ version: '3.8'
 services:
     cron:
         build: .
+        restart: always
 

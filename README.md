@@ -14,46 +14,23 @@ Script tries to start VM instance only if it is in STOPPED status. All other sta
 
 ## Usage
 
-Set environment variables:
-YCR_CRON
-YCR_HOSTS
+### Build using docker-compose. Two mandatory parameters should be provided:
+
+ - YCR_CRON - crontab
+ - YCR_HOSTS - list of instances separated by space
+
+```docker-compose build --build-arg YCR_CRON="* * * * *" --build-arg YCR_HOSTS="instance1 instance2"```
+
+### Start container
+
+```docker-compose up -d```
+
+### Connect to Yandex Cloud from inside container CLI()
+
+```docker-compose exec cron /root/yandex-cloud/bin/yc init```
 
 
-docker-compose up -d
+Oficial guide:
 
-Get status:
-yc compute instance get shamrock-project-web | grep status
-
-Start:
-yc compute instance start shamrock-project-web
-
-Stop:
-yc compute instance stop shamrock-project-web
-
-
-
-Statuses
-- RUNNING
-- STOPPING
-- STOPPED
-- STARTING
-
-
-$YCR_CRON python /app/src/Main.py $YCR_HOSTS >> /var/log/cron.log 2>&1
-
-
-docker-compose build --build-arg YCR_CRON="* * * * *" --build-arg YCR_HOSTS="instance1 instance2"
-
-
-docker-compose up -d
-
-docker-compose exec cron /root/yandex-cloud/bin/yc init
-
-
-
-https://cloud.yandex.ru/docs/cli/operations/profile/profile-create
-
-* Настроить передачу параметров из docker-compose
-
-
+[Create Yandex Cloud CLI Profile](https://cloud.yandex.ru/docs/cli/operations/profile/profile-create)
 
