@@ -1,1 +1,1 @@
-$YCR_CRON /usr/local/bin/python /app/src/Main.py $YCR_HOSTS >> /var/log/cron.log 2>&1
+$YCR_CRON /usr/local/bin/python /app/src/restart.py $YCR_HOSTS >> /var/log/cron.log 2>&1

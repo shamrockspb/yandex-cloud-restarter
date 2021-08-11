@@ -27,7 +27,7 @@ Script tries to start VM instance only if it is in STOPPED status. All other sta
 
 ### Connect to Yandex Cloud from inside container CLI()
 
-```docker-compose exec cron /root/yandex-cloud/bin/yc init```
+```docker-compose exec yc-restarter /root/yandex-cloud/bin/yc init```
 
 
 Oficial guide:
