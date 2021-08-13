@@ -24,8 +24,6 @@ RUN curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
 
 # Copy hello-cron file to the cron.d directory
 COPY cron-ycr /tmp/cron-ycr
-RUN ls /
-RUN env
 RUN envsubst < /tmp/cron-ycr 
 RUN envsubst < /tmp/cron-ycr > /etc/cron.d/cron-ycr
 
