@@ -22,7 +22,7 @@ def start_instance(server):
     Returns:
         None
     """
-    if server == "":
+    if server != "":
         p = Popen(['/root/yandex-cloud/bin/yc', 'compute', 'instance',
                   'get', server], stdin=PIPE, stdout=PIPE, stderr=PIPE)
         output, err = p.communicate()
